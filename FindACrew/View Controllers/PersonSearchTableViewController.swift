@@ -12,6 +12,8 @@ class PersonSearchTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    private let personController = PersonController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,17 +21,6 @@ class PersonSearchTableViewController: UIViewController {
         tableView.dataSource = self
         searchBar.delegate = self
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -48,7 +39,13 @@ extension PersonSearchTableViewController: UITableViewDataSource {
 extension PersonSearchTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchTerm = searchBar.text else { return }
         
+        personController.searchForPeople(with: searchTerm) {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
 }
