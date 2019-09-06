@@ -27,11 +27,15 @@ class PersonSearchTableViewController: UIViewController {
 extension PersonSearchTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return personController.people.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath) as? PersonTableViewCell else { return UITableViewCell() }
+        
+        cell.person = personController.people[indexPath.row]
+        
+        return cell
     }
     
 }
