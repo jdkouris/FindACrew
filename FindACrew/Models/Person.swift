@@ -19,3 +19,7 @@ struct Person: Decodable {
         case birthYear = "birth_year"
     }
 }
+
+struct PersonSearch: Decodable {
+    let results: [Person]
+}
