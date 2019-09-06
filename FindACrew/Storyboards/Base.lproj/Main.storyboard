@@ -13,7 +13,7 @@
         <!--Find a Crew-->
         <scene sceneID="R1e-HF-4nV">
             <objects>
-                <viewController id="3Fo-ko-JYZ" sceneMemberID="viewController">
+                <viewController id="3Fo-ko-JYZ" customClass="PersonSearchTableViewController" customModule="FindACrew" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o0d-6U-aTB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="196" width="414" height="700"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PersonCell" rowHeight="100" id="VxU-zm-hia">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PersonCell" rowHeight="100" id="VxU-zm-hia" customClass="PersonTableViewCell" customModule="FindACrew" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VxU-zm-hia" id="a7C-Yd-yoW">
@@ -86,6 +86,11 @@
                                                 <constraint firstItem="E6y-PN-9b2" firstAttribute="top" secondItem="a7C-Yd-yoW" secondAttribute="top" constant="8" id="arj-5D-8pl"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="birthYearLabel" destination="OgA-qX-xfY" id="tfu-1c-Tm6"/>
+                                            <outlet property="genderLabel" destination="fVp-EY-YR1" id="fSE-PF-4F4"/>
+                                            <outlet property="nameLabel" destination="HMN-Jp-T67" id="Fn3-yp-4Nv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -103,6 +108,10 @@
                         <viewLayoutGuide key="safeArea" id="Ie1-m8-NWe"/>
                     </view>
                     <navigationItem key="navigationItem" title="Find a Crew" id="iNn-ld-Uqw"/>
+                    <connections>
+                        <outlet property="searchBar" destination="E4U-F8-0JY" id="QNC-Oz-tLb"/>
+                        <outlet property="tableView" destination="I1u-Ix-CkT" id="20H-ON-v2b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cce-3G-IRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
